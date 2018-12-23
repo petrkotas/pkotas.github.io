@@ -23,6 +23,21 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v" ,
+                "${workspaceRoot}:/srv/jekyll",
+                "-it",
+                "jekyll/jekyll:3.8",
+                "jekyll", 
+                "build"
+            ]
         }
     ]
 }

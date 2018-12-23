@@ -1,21 +1,31 @@
-# from http://jekyllrb.com/docs/continuous-integration/
 sudo: false
 language: ruby
 cache: bundler
 rvm:
-- 2.4.2
+  - 2.4.2
 
 install:
   # Install Jekyll and dependencies
   - bundle install
 
-script: jekyll build
+script: jekyll build --destination _build
 
 # branch whitelist, only for GitHub Pages
 branches:
   only:
-  - gh-pages     # test the gh-pages branch
+    - master     # test the gh-pages branch
 
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
+deploy:
+  provider: pages
+  local-dir: _build
+  fqdn: kotas.tech
+  github-token: $GITHUB_TOKEN
+  skip-cleanup: true
+  keep-history: true
+  verbose: true
+  on:
+    branch: master
