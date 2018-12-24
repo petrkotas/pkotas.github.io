@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   
     <title type="text" xml:lang="en">Petr Kotas</title>
-    <link type="application/atom+xml" rel="self" href="http://pkotas.github.io//atom.xml"/>
+    <link type="application/atom+xml" rel="self" href="kotas.tech/atom.xml"/>
   
-  <link href="http://pkotas.github.io//"/>
-  <id>http://pkotas.github.io//</id>
-  <updated>2018-12-23T18:33:12Z</updated>
+  <link href="kotas.tech/"/>
+  <id>kotas.tech/</id>
+  <updated>2018-12-24T08:02:43Z</updated>
   <author>
     <name>Petr Kotas</name>
     <email>petr.kotas@gmail.com</email>
@@ -15,8 +15,8 @@
   
   <entry>
   <title type="text">oVirt: Starting the virtual machine</title>
-  <link rel="alternate" type="text/html" href="http://pkotas.github.io//starting-virtual-machine.html" />
-  <id>http://pkotas.github.io//starting-virtual-machine</id>
+  <link rel="alternate" type="text/html" href="kotas.tech/starting-virtual-machine.html" />
+  <id>kotas.tech/starting-virtual-machine</id>
   <published>2017-11-11T00:00:00Z</published>
   <updated>2017-11-11T00:00:00Z</updated>
   <content type="html"><![CDATA[ <h1 id="ovirt-starting-the-virtualmachine">oVirt: Starting the virtual machine</h1>

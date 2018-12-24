@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://pkotas.github.io//</loc>
-    <lastmod>2018-12-23T18:33:12+00:00</lastmod>
+    <loc>kotas.tech/</loc>
+    <lastmod>2018-12-24T08:02:43+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
     <url>
-      <loc>http://pkotas.github.io//starting-virtual-machine.html</loc>
+      <loc>kotas.tech/starting-virtual-machine.html</loc>
       
         <lastmod>2017-11-11T00:00:00+00:00</lastmod>
       
@@ -22,22 +22,9 @@
   
   
   <url>
-    <loc>http://pkotas.github.io//404</loc>
+    <loc>kotas.tech/404</loc>
     
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
-    
-    
-      <changefreq>monthly</changefreq>
-    
-    
-      <priority>0.3</priority>
-    
-  </url>
-  
-  <url>
-    <loc>http://pkotas.github.io//atom.xml</loc>
-    
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -48,22 +35,9 @@
   </url>
   
   <url>
-    <loc>http://pkotas.github.io//blog</loc>
+    <loc>kotas.tech/atom.xml</loc>
     
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
-    
-    
-      <changefreq>monthly</changefreq>
-    
-    
-      <priority>0.3</priority>
-    
-  </url>
-  
-  <url>
-    <loc>http://pkotas.github.io//</loc>
-    
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -74,9 +48,9 @@
   </url>
   
   <url>
-    <loc>http://pkotas.github.io//projects</loc>
+    <loc>kotas.tech/blog</loc>
     
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -87,9 +61,35 @@
   </url>
   
   <url>
-    <loc>http://pkotas.github.io//sitemap.xml</loc>
+    <loc>kotas.tech/</loc>
     
-      <lastmod>2018-12-23T18:33:12+00:00</lastmod>
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>kotas.tech/projects</loc>
+    
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>kotas.tech/sitemap.xml</loc>
+    
+      <lastmod>2018-12-24T08:02:43+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
