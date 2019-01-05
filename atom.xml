@@ -6,12 +6,12 @@
   
   <link href="kotas.tech/"/>
   <id>kotas.tech/</id>
-  <updated>2018-12-24T08:02:43Z</updated>
+  <updated>2019-01-05T20:09:28Z</updated>
   <author>
     <name>Petr Kotas</name>
     <email>petr.kotas@gmail.com</email>
   </author>
-  <rights type="text">Copyright © 2018 Petr Kotas. All rights reserved.</rights>
+  <rights type="text">Copyright © 2019 Petr Kotas. All rights reserved.</rights>
   
   <entry>
   <title type="text">oVirt: Starting the virtual machine</title>
@@ -19,9 +19,7 @@
   <id>kotas.tech/starting-virtual-machine</id>
   <published>2017-11-11T00:00:00Z</published>
   <updated>2017-11-11T00:00:00Z</updated>
-  <content type="html"><![CDATA[ <h1 id="ovirt-starting-the-virtualmachine">oVirt: Starting the virtual machine</h1>
-
-<p>Starting up a virtual machine (VM) is not an easy task, there are lot of things going on hidden from the plain sight and studying it alone is a challenging task. The goal of this post is to simplify the process of learning how the oVirt hypervisor works. The concept of the oVirt is illustrated on the process of starting up the VM, which covers everything from top to the bottom.</p>
+  <content type="html"><![CDATA[ <p>Starting up a virtual machine (VM) is not an easy task, there are lot of things going on hidden from the plain sight and studying it alone is a challenging task. The goal of this post is to simplify the process of learning how the oVirt hypervisor works. The concept of the oVirt is illustrated on the process of starting up the VM, which covers everything from top to the bottom.</p>
 
 <p><strong>Disclaimer:</strong> I am an engineer working close to the host part of the oVirt, therefore my knowledge of the engine is limited.</p>
 
