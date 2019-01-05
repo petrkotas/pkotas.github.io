@@ -1,0 +1,166 @@
+---
+layout: layout
+---
+<!-- Container holding responsive layout of the blog -->
+<div class="container">
+  <!-- Panel holds the content -->
+  <div class="panel panel-default">
+    <!-- CV has header in left column containing the img and short bio -->
+    <div class="row">
+      <!-- header with short bio -->
+      <div class="col-sm-3 text-left">
+          <header class="panel-header">
+            <div style="max-width: 60%">
+              <img src="{{ site.baseurl }}static/img/profile.png" class="img-responsive rounded-circle">
+            </div>
+            <h1>{{ site.author }}</h1>
+            <p>
+              <a href="{{ site.website_full }}">{{ site.website }}</a><br/>
+              <a href="{{ site.email_full }}">{{ site.email }}</a><br/>
+              <a href="https://github.com/{{ site.github }}"><i class="fa fa-github"></i> Github</a> /
+              <a href="https://twitter.com/{{ site.twitter }}"><i class="fa fa-twitter"></i> Twitter</a>
+            </p>
+          </header>
+      </div>
+      
+      <!-- cv informations split into logical sections -->
+      <div class="col-sm-9 text-left">
+        <div class="panel-body">
+          <!-- job experience -->
+          <section>
+            <h1>Work experience</h1>
+            {% for job in page.job %}
+            <article>
+              <header>
+                <h1>{{ job.title }}</h1>
+                <span class="text-muted">{{ job.where }}, <time>{{ job.when }}</time></span>
+              </header>
+              <p>{{ job.what }}</p>
+            </article>
+            {% endfor %}
+          </section>
+
+          <!-- education -->
+          <section>
+            <h1>Education</h1>
+            {% for school in page.school %}
+            <article>
+              <header>
+                <h1>{{ school.title }}</h1>
+                <span class="text-muted">{{ school.where }}</span>
+                <p>{{ school.thesis }}</p>
+              </header>
+            </article>
+            {% endfor %}
+          </section>
+
+          <!-- language and soft skills are two columns -->
+          <div class="row">
+
+            <div class="col-sm-6">
+              <section>
+                <h1>Languages</h1>
+                <article>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      {% for language in page.languages %}
+                      <tr>
+                        <td class="text-sm-left align-middle" style="width: 40%">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ language.value }}%" aria-valuenow="{{ language.value }}" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-sm-left align-middle" style="width: 60%">{{ language.name }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </article>
+              </section>
+            </div>
+          
+            <div class="col-sm-6">
+              <section>
+                <h1>Soft skills</h1>
+                <article>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      {% for soft_skill in page.soft_skills %}
+                      <tr>
+                        <td class="text-sm-left align-middle" style="width: 40%">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ soft_skill.value }}%" aria-valuenow="{{ soft_skill.value }}" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-sm-left align-middle" style="width: 60%">{{ soft_skill.name }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                  </div> 
+                </article>
+              </section>
+            </div>
+
+          </div>
+
+          <!-- language and soft skills are two columns -->
+          <div class="row">
+
+            <div class="col-sm-6">
+              <section>
+                <h1>Coding proficiency</h1>
+                <article>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      {% for code in page.coding %}
+                      <tr>
+                        <td class="text-sm-left align-middle" style="width: 40%">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ code.value }}%" aria-valuenow="{{ code.value }}" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-sm-left align-middle" style="width: 60%">{{ code.name }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </article>
+              </section>
+            </div>
+          
+            <div class="col-sm-6">
+              <section>
+                <h1>Technology proficiency</h1>
+                <article>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      {% for tech in page.tech %}
+                      <tr>
+                        <td class="text-sm-left align-middle" style="width: 40%">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ tech.value }}%" aria-valuenow="{{ tech.value }}" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </td>
+                        <td class="text-sm-left align-middle" style="width: 60%">{{ tech.name }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </article>
+              </section>
+            </div>
+
+          </div>
+
+        </div>
+        </div>
+
+      </div>
+
+    <!-- end panel -->
+    </div>
+
+  <!-- end container -->
+  </div> 
+  
+</div>

@@ -7,7 +7,6 @@ tags:
   - oVirt
   - VM
 ---
-# oVirt: Starting the virtual machine
 
 Starting up a virtual machine (VM) is not an easy task, there are lot of things going on hidden from the plain sight and studying it alone is a challenging task. The goal of this post is to simplify the process of learning how the oVirt hypervisor works. The concept of the oVirt is illustrated on the process of starting up the VM, which covers everything from top to the bottom.
 

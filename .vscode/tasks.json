@@ -15,9 +15,10 @@
                 "-p",
                 "3000:3000",
                 "-it",
-                "jekyll/jekyll:3.8",
+                "jekyll/jekyll:latest",
                 "jekyll", 
-                "serve"
+                "serve",
+                "--force_polling"
             ],
             "group": {
                 "kind": "build",
@@ -34,7 +35,7 @@
                 "-v" ,
                 "${workspaceRoot}:/srv/jekyll",
                 "-it",
-                "jekyll/jekyll:3.8",
+                "jekyll/jekyll:latest",
                 "jekyll", 
                 "build"
             ]
