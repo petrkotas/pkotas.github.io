@@ -6,13 +6,86 @@
   
   <link href="kotas.tech/"/>
   <id>kotas.tech/</id>
-  <updated>2019-01-05T20:09:28Z</updated>
+  <updated>2019-01-08T19:35:25Z</updated>
   <author>
     <name>Petr Kotas</name>
     <email>petr.kotas@gmail.com</email>
   </author>
   <rights type="text">Copyright © 2019 Petr Kotas. All rights reserved.</rights>
   
+  <entry>
+  <title type="text">GO modifying command agruments</title>
+  <link rel="alternate" type="text/html" href="kotas.tech/golang-args.html" />
+  <id>kotas.tech/golang-args</id>
+  <published>2019-01-08T00:00:00Z</published>
+  <updated>2019-01-08T00:00:00Z</updated>
+  <content type="html"><![CDATA[ <p>Today I learned something new about golang I want to share: You can modify
+arguments to the application once the application is started.</p>
+
+<p>Usually, when designing the command line arguments, arguments have to be parsed,
+matched and processed. In golang, this is easily done via importing the
+<code class="highlighter-rouge">os</code> module and using the <code class="highlighter-rouge">os.Args</code> slice,
+which contains every argument passed to the command.
+It is simple, just like in the example</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"os"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">argumentsCount</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">)</span><span class="x">
+    </span><span class="k">if</span><span class="x"> </span><span class="n">argumentsCount</span><span class="x"> </span><span class="o">&lt;</span><span class="x"> </span><span class="m">99</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">doSomething</span><span class="p">()</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+    </span><span class="k">for</span><span class="x"> </span><span class="n">_</span><span class="p">,</span><span class="x"> </span><span class="n">arg</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">process</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre></div></div>
+
+<p>This is fairly trivial until you decide to design a serious command line utility.
+Of course, the golang has a nice <code class="highlighter-rouge">flag</code> package which offers command line flag
+parsing and there is 3rd party pflag package for better flag parsing.
+And if you are designing big tool, you can take advantage of the cobra package,
+which allows you to build tools with git like usage, quite easily.</p>
+
+<p>But what if you need to hack your way around and modify the command arguments
+before it is even used in the application? Well, this is what I had to solve.
+I had to modify arguments passed to the application before the cobra took control.
+For the record, this is not best practice and you should do it only for testing
+and developing, not in production.</p>
+
+<p>As I mentioned in the beginning, the arguments are passed to the application
+through the <code class="highlighter-rouge">os.Args</code>, which is a slice. It occurred to me, that slice can be
+modified. So I tried it and whoaa, it worked. I was able to modify the command
+arguments, even though I always considered it read-only.
+The only trick to do it before I called cobra, was to do it in the init phase
+before cobra was initialized. The full snippet is below.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="x">
+</span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="n">os</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">initCobraAndDoStuff</span><span class="p">()</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">init</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="c">// do the argument editing here</span><span class="x">
+
+    </span><span class="k">if</span><span class="x"> </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="s">"test"</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="nb">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">,</span><span class="x"> </span><span class="s">"all"</span><span class="p">)</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="c">// now the command arguments are:</span><span class="x">
+    </span><span class="c">// commandName test all</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre></div></div>
+ ]]></content>
+</entry>
+
+
   <entry>
   <title type="text">oVirt: Starting the virtual machine</title>
   <link rel="alternate" type="text/html" href="kotas.tech/starting-virtual-machine.html" />

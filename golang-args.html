@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="author" content="Petr Kotas" />
+    <meta name="description" content="Personal blog and ego boosting web">
+    <link rel="favicon" href="static/img/favicon.ico">
+
+    
+      <title>GO modifying command agruments</title>
+    
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">   <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  	<!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+  	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/syntax.css" />
+
+  </head>
+  <!-- Main Body-->
+  <body>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Navbar header -->
+      <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-default">
+    <a class="navbar-brand mr-auto" href="index.html"><i class="fa fa-home"></i></a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="blog.html">BLOG</a></li>
+      <!-- <li class="nav-item"><a class="nav-link" href="video.html">VIDEO</a></li> -->
+      <!-- <li class="nav-item"><a class="nav-link" href="projects.html">PROJECTS</a></li> -->
+      <li class="nav-item"><a class="nav-link" href="vitae.html">RESUME</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+      <div class="container">
+	<div class="panel panel-default">
+    <div class="panel-header">
+      <h1>GO modifying command agruments</h1>
+      <h4>
+        January  8, 2019
+        &nbsp;&nbsp;
+        
+        <span class="badge-pill badge-light">golang</span>
+        
+        <span class="badge-pill badge-light">command</span>
+        
+      </h4>
+    </div>
+		<div class="panel-body">
+			<div class="blogpost">
+        <article>
+          <p>Today I learned something new about golang I want to share: You can modify
+arguments to the application once the application is started.</p>
+
+<p>Usually, when designing the command line arguments, arguments have to be parsed,
+matched and processed. In golang, this is easily done via importing the
+<code class="highlighter-rouge">os</code> module and using the <code class="highlighter-rouge">os.Args</code> slice,
+which contains every argument passed to the command.
+It is simple, just like in the example</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"os"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">argumentsCount</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">)</span><span class="x">
+    </span><span class="k">if</span><span class="x"> </span><span class="n">argumentsCount</span><span class="x"> </span><span class="o">&lt;</span><span class="x"> </span><span class="m">99</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">doSomething</span><span class="p">()</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+    </span><span class="k">for</span><span class="x"> </span><span class="n">_</span><span class="p">,</span><span class="x"> </span><span class="n">arg</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">process</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre></div></div>
+
+<p>This is fairly trivial until you decide to design a serious command line utility.
+Of course, the golang has a nice <code class="highlighter-rouge">flag</code> package which offers command line flag
+parsing and there is 3rd party pflag package for better flag parsing.
+And if you are designing big tool, you can take advantage of the cobra package,
+which allows you to build tools with git like usage, quite easily.</p>
+
+<p>But what if you need to hack your way around and modify the command arguments
+before it is even used in the application? Well, this is what I had to solve.
+I had to modify arguments passed to the application before the cobra took control.
+For the record, this is not best practice and you should do it only for testing
+and developing, not in production.</p>
+
+<p>As I mentioned in the beginning, the arguments are passed to the application
+through the <code class="highlighter-rouge">os.Args</code>, which is a slice. It occurred to me, that slice can be
+modified. So I tried it and whoaa, it worked. I was able to modify the command
+arguments, even though I always considered it read-only.
+The only trick to do it before I called cobra, was to do it in the init phase
+before cobra was initialized. The full snippet is below.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="x">
+</span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="n">os</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">initCobraAndDoStuff</span><span class="p">()</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">init</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="c">// do the argument editing here</span><span class="x">
+
+    </span><span class="k">if</span><span class="x"> </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="s">"test"</span><span class="x"> </span><span class="p">{</span><span class="x">
+        </span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="nb">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Args</span><span class="p">,</span><span class="x"> </span><span class="s">"all"</span><span class="p">)</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+
+    </span><span class="c">// now the command arguments are:</span><span class="x">
+    </span><span class="c">// commandName test all</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre></div></div>
+
+        </article>
+       
+       <hr>
+		   <div class="related-posts">
+  		   <h5>Related Posts</h5>
+         
+				  <div class="row">
+							 <div class="col-sm-4 col-md-4 col-lg-4">
+								 <h6 style="text-align: right">
+								 	November 11, 2017
+								 </h6>
+							 </div>
+							 <div class="col-sm-8 col-md-8 col-lg-8">
+								 <h6 style="text-align: left">
+								 	<strong><a href="/starting-virtual-machine.html">oVirt: Starting the virtual machine</a></strong>
+								 </h6>
+							 </div>
+						</div>
+					
+			   </div>
+			</div>
+      
+		</div>
+	</div>
+</div>
+
+
+    </div>
+    <!-- Footer -->
+    <footer>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">© All rights reserved. Powered by <a href="http://jekyllrb.com/">Jekyll</a> and
+            <a href="http://www.github.com/jekyller/sustain">sustain</a> with ♥</p>
+        </div>
+    </div>
+</footer>
+<div class="footer"></div>
+
+    <!--  Bootstrap include -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  	<script src="static/js/docs.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="static/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      // Handler executed once the page is loaded.
+      // The usage is simple, just define the onLoad above
+      // and it will be called
+      $(function() {
+        if (typeof onLoad == 'function') {
+          onLoad();
+          console.log('Loaded document')
+        }
+      });
+    </script>
+  </body>
+</html>
