@@ -30,3 +30,6 @@ exclude: [vendor]
 
 # store site content in one place
 collections_dir: site_items
+
+include:
+  - _pages
