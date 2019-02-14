@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: blog_post
 title: "GO modifying command agruments"
 description: "Tip how to modify command agurment before further processing."
-tags: 
+tags:
   - golang
   - command
 ---

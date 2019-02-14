@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: blog_post
 title: "oVirt: Starting the virtual machine"
 description: "This post describes the flow of starting the VM in the oVirt hypervisor environment."
-tags: 
+tags:
   - Virtualization
   - oVirt
   - VM
