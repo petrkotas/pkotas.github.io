@@ -27,3 +27,6 @@ linkedin: petrkotas
 
 # needed for travis-ci build
 exclude: [vendor]
+
+# store site content in one place
+collections_dir: site_items
