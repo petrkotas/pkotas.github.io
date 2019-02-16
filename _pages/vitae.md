@@ -1,21 +1,22 @@
 ---
 layout: vitae
+permalink: /vitae/
 
 
 job:
-  - title: Senior Engineer 
-    where: Red Hat 
+  - title: Senior Engineer
+    where: Red Hat
     when: June 2017 – Present
     what: >
-      Development of the next gen Red Hat virtualization technology. 
+      Development of the next gen Red Hat virtualization technology.
 
-  - title: Founder Cosidat 
-    where: Cosidat 
+  - title: Founder Cosidat
+    where: Cosidat
     when: August 2016 – June 2017
-    what: Building my own food recommendation startup. 
+    what: Building my own food recommendation startup.
 
   - title: Vice president for membership
-    where: Brněnští toastmástři, Toastmasters international 
+    where: Brněnští toastmástři, Toastmasters international
     when: June 2016 – June 2017
     what: Handling new members for the club. Club leadership as executive board member.
 
@@ -23,19 +24,19 @@ job:
     where: Seznam.cz
     when: January 2016 – August 2016
     what: >
-      The tech lead for debug tool team. 
-      Finding the cause of bugs and malfunctions. 
-      Coordinating the work in the team. 
+      The tech lead for debug tool team.
+      Finding the cause of bugs and malfunctions.
+      Coordinating the work in the team.
 
-  - title: Product Manager 
+  - title: Product Manager
     where: Seznam.cz
     when: December 2014 – December 2015
     what: >
-      Analyzing the current product challenges and acquiring user needs. 
-      Writing product and technical specificaion for internal big data system. 
-      Data analysis. Advocating project, negotiating for developer time. 
+      Analyzing the current product challenges and acquiring user needs.
+      Writing product and technical specificaion for internal big data system.
+      Data analysis. Advocating project, negotiating for developer time.
 
-  - title: Senior Developer 
+  - title: Senior Developer
     where: Seznam.cz
     when: June 2014 – November 2014
     what: >
@@ -47,7 +48,7 @@ job:
 school:
   - title: Ing in Computational Math
     where: FEI, VŠB - Technická Univerzita Ostrava
-    thesis: Efficient implementation of SVD and its application to biometric data processing 
+    thesis: Efficient implementation of SVD and its application to biometric data processing
   - title: Bachelor in Computational Math
     where: FEI, VŠB - Technická Univerzita Ostrava
     thesis: Efficient implementation of singular value decomposition
