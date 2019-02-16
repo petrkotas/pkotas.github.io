@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>kotas.tech/</loc>
-    <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+    <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
     <url>
-      <loc>kotas.tech/golang-args.html</loc>
+      <loc>kotas.tech/blog/2019/01/08/golang-args/</loc>
       
         <lastmod>2019-01-08T00:00:00+00:00</lastmod>
       
@@ -21,7 +21,7 @@
     </url>
   
     <url>
-      <loc>kotas.tech/starting-virtual-machine.html</loc>
+      <loc>kotas.tech/blog/2017/11/11/starting-virtual-machine/</loc>
       
         <lastmod>2017-11-11T00:00:00+00:00</lastmod>
       
@@ -35,9 +35,9 @@
   
   
   <url>
-    <loc>kotas.tech/404</loc>
+    <loc>kotas.tech/404/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -50,7 +50,7 @@
   <url>
     <loc>kotas.tech/atom.xml</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -61,9 +61,9 @@
   </url>
   
   <url>
-    <loc>kotas.tech/_pages/blog</loc>
+    <loc>kotas.tech/blog/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -76,7 +76,7 @@
   <url>
     <loc>kotas.tech/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -89,7 +89,7 @@
   <url>
     <loc>kotas.tech/static/css/main.css</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -100,9 +100,9 @@
   </url>
   
   <url>
-    <loc>kotas.tech/_pages/projects</loc>
+    <loc>kotas.tech/projects/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -115,7 +115,7 @@
   <url>
     <loc>kotas.tech/sitemap.xml</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -126,9 +126,9 @@
   </url>
   
   <url>
-    <loc>kotas.tech/_pages/video</loc>
+    <loc>kotas.tech/_pages/video/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -139,9 +139,9 @@
   </url>
   
   <url>
-    <loc>kotas.tech/_pages/vitae</loc>
+    <loc>kotas.tech/vitae/</loc>
     
-      <lastmod>2019-02-14T12:35:11+00:00</lastmod>
+      <lastmod>2019-02-16T18:11:11+00:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
