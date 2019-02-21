@@ -12,7 +12,7 @@ Starting up a virtual machine (VM) is not an easy task, there are lot of things 
 
 **Disclaimer:** I am an engineer working close to the host part of the oVirt, therefore my knowledge of the engine is limited.
 
-![ovirt web admin]({{site.url}}/assets/images/ovirt/webadmin.png)
+![ovirt web admin](/assets/images/ovirt/webadmin.png)
 
 ## Architecture
 
@@ -34,7 +34,7 @@ The engine is the brain of the oVirt hypervisor, but what does it means, right? 
 
 At this point, it is good time to tell you, that the engine is composed of three parts: 1) the web UI, 2) the Java backend and 3) the postgresql database. The web UI server as main command center for the whole oVirt and it is the entry point from where you start your VM. By pressing “VM run” button.
 
-![ovirt engine]({{ site.url }}/assets/images/ovirt/ovirt-engine.png)
+![ovirt engine](/assets/images/ovirt/ovirt-engine.png)
 
 Once the user presses the button, the Java backend starts to build the VM configuration. The process begins by accessing the Postgresql database. If the VM already exists, the list of its  devices, storage drives, current state (new, paused, hibernated) and guest agent version is retrieved. From the retrieved data, the backend build the VM configuration.
 
@@ -42,7 +42,7 @@ From the built configuration, the VDSM command for running the VM is created, wh
 
 ## Host
 
-![VDSM and QEMU]({{ site.url }}/assets/images/ovirt/vdsm-libvirt-qemu.png)
+![VDSM and QEMU](/assets/images/ovirt/vdsm-libvirt-qemu.png)
 
 Now, when the VDSM receives the command, it starts the work on running the VM. As you can see from the picture, before any VM can be run in the [QEMU](https://www.qemu.org), the VDSM needs to go through [libVirt](https://libvirt.org) as its middle man. Furthermore, the VDSM needs to handle states of the VMs running on its host. While it might not seem like a big deal, things can get complicated really fast.
 
