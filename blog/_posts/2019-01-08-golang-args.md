@@ -16,7 +16,9 @@ matched and processed. In golang, this is easily done via importing the
 which contains every argument passed to the command.
 It is simple, just like in the example
 
-```golang
+highlighter: pygments aaaa
+
+```go
 package main
 
 import "os"
@@ -51,8 +53,7 @@ arguments, even though I always considered it read-only.
 The only trick to do it before I called cobra, was to do it in the init phase
 before cobra was initialized. The full snippet is below.
 
-```golang
-
+```go
 package main
 
 import os

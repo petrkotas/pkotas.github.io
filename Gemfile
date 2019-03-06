@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.6.2"
-gem "github-pages", "~> 168"
+gem "jekyll", "~> 3.7.4"
+gem "github-pages", "~> 197"
+gem "redcarpet", "~> 3.3.0"
+
