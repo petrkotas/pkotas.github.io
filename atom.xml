@@ -6,7 +6,7 @@
   
   <link href="kotas.tech/"/>
   <id>kotas.tech/</id>
-  <updated>2019-02-21T14:18:43Z</updated>
+  <updated>2019-03-06T19:12:34Z</updated>
   <author>
     <name>Petr Kotas</name>
     <email>petr.kotas@gmail.com</email>
@@ -28,7 +28,22 @@ matched and processed. In golang, this is easily done via importing the
 which contains every argument passed to the command.
 It is simple, just like in the example</p>
 
-<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<p>highlighter: pygments aaaa</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
 </span><span class="k">import</span><span class="x"> </span><span class="s">"os"</span><span class="x">
 
@@ -41,7 +56,7 @@ It is simple, just like in the example</p>
         </span><span class="n">process</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="x">
     </span><span class="p">}</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre></div></div>
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>This is fairly trivial until you decide to design a serious command line utility.
 Of course, the golang has a nice <code class="highlighter-rouge">flag</code> package which offers command line flag
@@ -62,8 +77,25 @@ arguments, even though I always considered it read-only.
 The only trick to do it before I called cobra, was to do it in the init phase
 before cobra was initialized. The full snippet is below.</p>
 
-<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="x">
-</span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
 </span><span class="k">import</span><span class="x"> </span><span class="n">os</span><span class="x">
 
@@ -81,7 +113,7 @@ before cobra was initialized. The full snippet is below.</p>
     </span><span class="c">// now the command arguments are:</span><span class="x">
     </span><span class="c">// commandName test all</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre></div></div>
+</span></pre></td></tr></tbody></table></code></pre></div></div>
  ]]></content>
 </entry>
 

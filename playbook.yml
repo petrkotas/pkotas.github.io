@@ -1,0 +1,59 @@
+---
+- name: Install Ruby environment
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install requirements
+      yum:
+        state: present
+        name: ""
+      vars:
+        packages:
+          - gcc-c++
+          - patch
+          - readline
+          - readline-devel
+          - zlib
+          - zlib-devel
+          - libyaml-devel
+          - libffi-devel
+          - openssl-devel
+          - make
+          - bzip2
+          - autoconf
+          - automake
+          - libtool
+          - bison
+          - glibc
+          - sqlite-devel
+    
+    - name: Download asc 
+      get_url:
+        url: https://rvm.io/.asc
+        dest: /home/vagrant/.asc
+      with_items:
+        - "mpapis"
+        - "pkuczynski"
+    - name: Gpg import
+      shell: "cat /home/vagrant/.asc | gpg2 --import -"
+      with_items:
+        - "mpapis"
+        - "pkuczynski"
+    
+    - name: Download installer
+      get_url:
+        url: get.rvm.io
+        dest: /home/vagrant/installer.sh
+    - name: Run installer
+      shell: "bash /home/vagrant/installer.sh -s stable"
+
+    - name: Install ruby
+      shell: "source /etc/profile.d/rvm.sh"
+    - name: rvm
+      shell: "rvm "
+      with_items:
+        - reload
+        - requirements run
+        - install 2.6
+        - use 2.6 --default
